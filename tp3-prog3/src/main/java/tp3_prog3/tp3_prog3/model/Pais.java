@@ -1,0 +1,6 @@
+package tp3_prog3.tp3_prog3.model;
+
+public enum Pais {
+
+	ARGENTINA, BOLIVIA, BRASIL, CHILE, COLOMBIA, ECUADOR, JAMAICA, MÉXICO, PARAGUAY, PERÚ, URUGUAY, VENEZUELA
+}
