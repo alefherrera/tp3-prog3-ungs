@@ -149,7 +149,10 @@ public class JugadorPage extends JFrame {
 		JButton btnGuardar = new JButton("Guardar");
 		btnGuardar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-
+				
+				if (!isFormValid())
+					return;
+				
 				Jugador nuevo = new Jugador();
 				nuevo.setNombre(txtNombre.getText());
 				nuevo.setSeleccion((Pais) cmbPais.getSelectedItem());
@@ -178,7 +181,7 @@ public class JugadorPage extends JFrame {
 			resul = false;
 		}
 
-		return true;
+		return resul;
 	}
 	
 	private void setStatusLabel(String msg){
