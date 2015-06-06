@@ -48,7 +48,7 @@ public class Respuesta extends Equipo {
 			sb.append(jugador);
 			sb.append(",\n\t");
 		}
-		return "{\n Jugadores: [\n" + sb.toString() + "]\n}";
+		return "{\n Puntaje: " + getPuntaje() + ",\n Jugadores: [\n" + sb.toString() + "]\n}";
 	}
 
 }

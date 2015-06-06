@@ -18,7 +18,7 @@ public class Main {
 		List<Equipo> equipos = new ArrayList<Equipo>();
 		List<Jugador> universo = new ArrayList<Jugador>();
 		
-		while (c < 4) {
+		while (c < 1) {
 			equipos.add(GeneradorEquipo.generar());
 			c++;
 		}
