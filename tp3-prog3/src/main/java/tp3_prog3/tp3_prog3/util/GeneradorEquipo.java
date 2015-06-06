@@ -13,17 +13,16 @@ public class GeneradorEquipo {
 	private static final Pais[] paises = Pais.values();
 	private static final Posicion[] posiciones = Posicion.values();
 
-	public static Equipo generar(String nombre) {
-
-		Equipo ret = new Equipo(nombre);
+	public static Equipo generar() {
+		Pais pais = paises[r.nextInt(paises.length)];
+		Equipo ret = new Equipo(pais);
 		int c = 0;
-		while(ret.getCantidad() < Equipo.capacidad){
-			ret.agregar(new Jugador(nombre + " jugador" + c++, paises[r
-			                          					.nextInt(paises.length)], posiciones[r
-			                          					.nextInt(posiciones.length)], r.nextInt(10), r.nextInt(3),
-			                          					r.nextInt(100)));
+		while (ret.getCantidad() < Equipo.capacidad) {
+			ret.agregar(new Jugador("jugador" + c++, pais, posiciones[r
+					.nextInt(posiciones.length)], r.nextInt(10), r.nextInt(3),
+					r.nextInt(100)));
 		}
-		
+
 		return ret;
 	}
 

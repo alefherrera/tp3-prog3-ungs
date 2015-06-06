@@ -7,7 +7,7 @@ public class Equipo {
 
 	private List<Jugador> jugadores;
 	public static final int capacidad = 11;
-	private String nombre;
+	private Pais pais;
 
 	private static final int[] maximos = { 1, 4, 3, 3 };
 
@@ -18,9 +18,9 @@ public class Equipo {
 		cantidades = new int[4];
 	}
 
-	public Equipo(String nombre) {
+	public Equipo(Pais pais) {
 		this();
-		this.nombre = nombre;
+		this.pais = pais;
 	}
 
 	public boolean agregar(Jugador j) {
@@ -49,7 +49,7 @@ public class Equipo {
 			sb.append(jugador);
 			sb.append(",\n\t");
 		}
-		return "{\n Nombre: '" + nombre + "', \n Jugadores: [\n"
+		return "{\n Pais: '" + pais + "', \n Jugadores: [\n"
 				+ sb.toString() + "]\n}";
 	}
 

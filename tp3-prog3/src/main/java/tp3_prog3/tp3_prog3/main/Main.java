@@ -15,7 +15,8 @@ public class Main {
 		List<Equipo> equipos = new ArrayList<Equipo>();
 
 		while (c < 4) {
-			equipos.add(GeneradorEquipo.generar("Equipo" + c++));
+			equipos.add(GeneradorEquipo.generar());
+			c++;
 		}
 		
 		for (Equipo equipo : equipos) {
