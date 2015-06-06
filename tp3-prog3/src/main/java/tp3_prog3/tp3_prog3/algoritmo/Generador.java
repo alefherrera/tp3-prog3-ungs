@@ -1,6 +1,7 @@
 package tp3_prog3.tp3_prog3.algoritmo;
 
 import tp3_prog3.tp3_prog3.model.Equipo;
+import tp3_prog3.tp3_prog3.model.Respuesta;
 
 public class Generador {
 	private int n;
