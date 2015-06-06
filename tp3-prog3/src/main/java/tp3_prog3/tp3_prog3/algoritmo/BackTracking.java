@@ -26,6 +26,7 @@ public class BackTracking {
 		for (int i = n; i < universo.size(); i++) {
 			if (cumpleTodo(r))
 			{
+				//cada vez que un equipo va cumpliendo las condiciones genero todas las combinaciones con los siguientes
 				r.agregar(universo.get(n));
 				recursivo(universo, r, n+1);
 			}
