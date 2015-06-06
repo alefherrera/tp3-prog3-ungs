@@ -47,7 +47,7 @@ public class MainPage {
 		frmPaginaPrincipal.setBounds(100, 100, 450, 300);
 		frmPaginaPrincipal.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmPaginaPrincipal.getContentPane().setLayout(null);
-		
+
 		JButton btnCargaJugador = new JButton("Carga Jugador");
 		btnCargaJugador.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -56,7 +56,7 @@ public class MainPage {
 		});
 		btnCargaJugador.setBounds(81, 106, 123, 79);
 		frmPaginaPrincipal.getContentPane().add(btnCargaJugador);
-		
+
 		JButton btnCrearEquipos = new JButton("Calcular Equipos");
 		btnCrearEquipos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {

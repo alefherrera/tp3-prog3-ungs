@@ -8,25 +8,25 @@ import tp3_prog3.tp3_prog3.persistencia.Persistencia;
 public class ApplicationService {
 
 	private static ApplicationService instance;
-	
-	public static ApplicationService getInstance(){
+
+	public static ApplicationService getInstance() {
 		if (instance == null)
 			instance = new ApplicationService();
 		return instance;
 	}
-	
-	private ApplicationService(){
-		
+
+	private ApplicationService() {
+
 	}
-	
-	public void InitDb(){
+
+	public void InitDb() {
 		Persistencia service = Persistencia.getInstance();
 		try {
 			service.createTable(Jugador.class);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}		
+		}
 	}
-	
+
 }

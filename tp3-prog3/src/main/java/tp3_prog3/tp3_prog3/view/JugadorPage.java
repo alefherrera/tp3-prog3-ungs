@@ -149,24 +149,24 @@ public class JugadorPage extends JFrame {
 		JButton btnGuardar = new JButton("Guardar");
 		btnGuardar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
+
 				if (!isFormValid())
 					return;
-				
+
 				Jugador nuevo = new Jugador();
 				nuevo.setNombre(txtNombre.getText());
 				nuevo.setSeleccion((Pais) cmbPais.getSelectedItem());
 				nuevo.setPosicion((Posicion) cmbPosicion.getSelectedItem());
 				nuevo.setTarjetasAmarillas((Integer) txtAmarillas.getValue());
 				nuevo.setTarjetasRojas((Integer) txtRojas.getValue());
-				
+
 				try {
 					Persistencia.getInstance().insert(nuevo);
 				} catch (SQLException e) {
 					setStatusLabel("Ocurrio un problema guardando el jugador");
 					e.printStackTrace();
 				}
-				
+
 			}
 		});
 		btnGuardar.setBounds(364, 266, 89, 23);
@@ -183,8 +183,8 @@ public class JugadorPage extends JFrame {
 
 		return resul;
 	}
-	
-	private void setStatusLabel(String msg){
+
+	private void setStatusLabel(String msg) {
 		lblStatus.setText(msg);
 	}
 

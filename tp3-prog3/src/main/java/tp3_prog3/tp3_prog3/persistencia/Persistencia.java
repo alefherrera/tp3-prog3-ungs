@@ -14,37 +14,37 @@ public class Persistencia {
 	private String databaseUrl = "jdbc:sqlite:copaAmerica.db";
 	private ConnectionSource connectionSource;
 	private static Persistencia instance;
-	
-	private Persistencia(){
-		
+
+	private Persistencia() {
+
 	}
-	
-	public static Persistencia getInstance(){
+
+	public static Persistencia getInstance() {
 		if (instance == null)
 			instance = new Persistencia();
 		return instance;
 	}
-	
+
 	public <T> void createTable(Class<T> c) throws SQLException {
 		OpenDb();
-		TableUtils.createTableIfNotExists(connectionSource, c);		
+		TableUtils.createTableIfNotExists(connectionSource, c);
 		closeDb();
 	}
-	
+
 	public <T> void dropTable(Class<T> c) throws SQLException {
 		OpenDb();
-		
-		TableUtils.dropTable(connectionSource, c, true);		
+
+		TableUtils.dropTable(connectionSource, c, true);
 		closeDb();
 	}
-	
+
 	public <T> void insert(T obj) throws SQLException {
 		OpenDb();
 
 		Dao<T, String> genericDao = extracted(obj);
 
 		genericDao.create(obj);
-		
+
 		closeDb();
 	}
 
@@ -54,47 +54,46 @@ public class Persistencia {
 		Dao<T, String> genericDao = extracted(obj);
 
 		genericDao.update(obj);
-		
+
 		closeDb();
 	}
-	
+
 	public <T> void delete(T obj) throws SQLException {
 		OpenDb();
 
 		Dao<T, String> genericDao = extracted(obj);
 
 		genericDao.delete(obj);
-		
+
 		closeDb();
 	}
-	
+
 	public <T> List<T> getAll(Class<T> c) throws SQLException {
 		OpenDb();
-		
+
 		List<T> ret = null;
-		Dao<T, String> genericDao = DaoManager.createDao(
-				connectionSource,c);
-		
+		Dao<T, String> genericDao = DaoManager.createDao(connectionSource, c);
+
 		ret = genericDao.queryForAll();
-		
+
 		closeDb();
 
 		return ret;
 	}
-	
-	public <T> List<T>getWhere(T obj) throws SQLException{
+
+	public <T> List<T> getWhere(T obj) throws SQLException {
 		OpenDb();
-		
+
 		List<T> ret = null;
 		Dao<T, String> genericDao = extracted(obj);
-		
+
 		ret = genericDao.queryForMatching(obj);
-		
+
 		closeDb();
 
 		return ret;
 	}
-	
+
 	private void closeDb() throws SQLException {
 		connectionSource.close();
 	}
@@ -105,7 +104,7 @@ public class Persistencia {
 
 	@SuppressWarnings("unchecked")
 	private <T> Dao<T, String> extracted(T obj) throws SQLException {
-		return (Dao<T, String>) DaoManager.createDao(
-				connectionSource, obj.getClass());
+		return (Dao<T, String>) DaoManager.createDao(connectionSource,
+				obj.getClass());
 	}
 }
