@@ -1,17 +1,23 @@
 package tp3_prog3.tp3_prog3.algoritmo;
 
+import java.util.List;
+
 import tp3_prog3.tp3_prog3.model.Equipo;
+import tp3_prog3.tp3_prog3.model.Jugador;
 import tp3_prog3.tp3_prog3.model.Respuesta;
 
 public class Generador {
 	private int n;
-	private boolean[] A;
-	private Equipo equipo;
+	private boolean[] v;
+	private List<Jugador> jugadores;
 
-	public Generador(Equipo equipo) {
-		n = Equipo.capacidad;
-		this.equipo = equipo;
-		A = new boolean[n + 1];
+	public Generador(List<Jugador> jugadores) {
+		n = jugadores.size();
+		this.jugadores = jugadores;
+		v = new boolean[n + 1];
+		for (int i = 0; i < 11; i++) {
+			v[i] = true;
+		}
 	}
 
 	// Proximo elemento
@@ -19,26 +25,26 @@ public class Generador {
 	public Respuesta next() {
 		Respuesta ret = new Respuesta();
 
-		for (int i = 0; i < n; ++i)
-			if (A[i] == true)
-				ret.agregar(equipo.getJugador(i));
-		sumarUno();
+		for (int i = 0; i < n; i++)
+			if (v[i])
+				ret.agregar(jugadores.get(i));
+		mover();
 		return ret;
 	}
 
 	public boolean hasNext() {
-		return A[n] == false;
+		return !v[n];
 	}
 
 	// Suma 1 al numero en binario representado por el arreglo
-	private void sumarUno() {
+	private void mover() {
 		int i = 0;
-		while (A[i] == true) {
-			A[i] = false;
+		while (v[i] == true) {
+			v[i] = false;
 			++i;
 		}
 
-		A[i] = true;
+		v[i] = true;
 	}
 
 	// no sirve para nada!!!!

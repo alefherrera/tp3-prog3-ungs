@@ -31,8 +31,8 @@ public class Equipo {
 		return ret;
 	}
 
-	public Jugador getJugador(int t) {
-		return jugadores.get(t);
+	public List<Jugador> getJugadores() {
+		return jugadores;
 	}
 
 	public int getCantidad() {
