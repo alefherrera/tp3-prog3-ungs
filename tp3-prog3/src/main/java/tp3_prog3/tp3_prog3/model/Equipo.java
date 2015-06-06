@@ -9,7 +9,7 @@ public class Equipo {
 	public static final int capacidad = 23;
 	private Pais pais;
 	private static final int[] maximos = { 3, 7, 7, 7 };
-	protected int[] cantidades;
+	private int[] cantidades;
 	
 	public Equipo() {
 		jugadores = new ArrayList<Jugador>();

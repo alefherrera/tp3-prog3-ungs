@@ -23,54 +23,49 @@ public class BackTracking {
 		if (n == universo.size()){
 			return;
 		}
-		for (int i = 0; i < universo.size(); i++) {
-			if (cumpleTodo(universo))
+		for (int i = n; i < universo.size(); i++) {
+			if (cumpleTodo(r))
 			{
 				r.agregar(universo.get(n));
-				recursivo(universo, r, n++);
+				recursivo(universo, r, n+1);
 			}
 		}		
 				
 	}
 	
-	private static boolean cumpleTodo(List<Jugador> jugadores) {
-		return cumpleFormacion(jugadores) && cumpleSeleccion(jugadores)
-				&& cumpleAmarillas(jugadores) && cumpleRojas(jugadores);
+	private static boolean cumpleTodo(Respuesta r) {
+		return r.getCantidad() <= 11 && cumpleFormacion(r) && cumpleSeleccion(r)
+				&& cumpleAmarillas(r) && cumpleRojas(r);
 	}
 
-	private static boolean cumpleFormacion(List<Jugador> jugadores) {
-
-		return true;
+	private static final int[] maximos = { 1, 4, 3, 3 };
+	private static boolean cumpleFormacion(Respuesta r) {
+		boolean ret = true;
+		int[] cantidades = r.getCantidades();
+		for (int i = 0; i < maximos.length; i++) {
+			ret = ret && cantidades[i] <= maximos[i];
+		}
+		return ret;
 	}
 
-	private static boolean cumpleSeleccion(List<Jugador> jugadores) {
-		Map<Pais, Integer> m = new HashMap<Pais, Integer>();
+	private static boolean cumpleSeleccion(Respuesta r) {
+		/*Map<Pais, Integer> m = new HashMap<Pais, Integer>();
 		for (Jugador jugador : jugadores) {
 			Integer val = m.get(jugador.getSeleccion());
 			m.putIfAbsent(jugador.getSeleccion(), val == null ? 1 : val++);
-		}
-		
-		
+		}*/
 		
 		return true;
 	}
 
 	private static final int maxAmarillas = 5;
-	private static boolean cumpleAmarillas(List<Jugador> jugadores) {
-		int amarillas = 0;
-		for (Jugador jugador : jugadores) {
-			amarillas += jugador.getTarjetasAmarillas();
-		}
-		return amarillas <= maxAmarillas;
+	private static boolean cumpleAmarillas(Respuesta r) {
+		return r.getAmarillas() <= maxAmarillas;
 	}
 
 	private static final int maxRojas = 1;
-	private static boolean cumpleRojas(List<Jugador> jugadores) {
-		int rojas = 0;
-		for (Jugador jugador : jugadores) {
-			rojas += jugador.getTarjetasRojas();
-		}
-		return rojas <= maxRojas;
+	private static boolean cumpleRojas(Respuesta r) {
+		return r.getRojas() <= maxRojas;
 	}
 
 }

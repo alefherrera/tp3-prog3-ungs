@@ -3,12 +3,33 @@ package tp3_prog3.tp3_prog3.model;
 public class Respuesta extends Equipo {
 
 	public static final int capacidad = 11;
-
+	private int[] cantidades;
+	private int amarillas;
+	private int rojas;
+	
+	public Respuesta(){
+		cantidades = new int[4];
+	}
+	
+	public int[] getCantidades(){
+		return cantidades;
+	}
+	
+	public int getAmarillas(){
+		return amarillas;
+	}
+	
+	public int getRojas(){
+		return rojas;
+	}
+	
 	@Override
 	public boolean agregar(Jugador j) {
-		cantidades[j.getPosicion().getValue()]++;
 		jugadores.add(j);
-		return getCantidad() < capacidad;
+		amarillas += j.getTarjetasAmarillas();
+		rojas += j.getTarjetasRojas();
+		cantidades[j.getPosicion().getValue()]++;
+		return true;
 	}
 
 	public double getPuntaje() {
