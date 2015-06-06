@@ -82,4 +82,12 @@ public class Jugador {
 		this.puntaje = puntaje;
 	}
 
+	@Override
+	public String toString() {
+		return "Jugador [nombre=" + nombre + ", seleccion=" + seleccion
+				+ ", posicion=" + posicion + ", tarjetasAmarillas="
+				+ tarjetasAmarillas + ", tarjetasRojas=" + tarjetasRojas
+				+ ", puntaje=" + puntaje + "]";
+	}
+
 }

@@ -15,10 +15,10 @@ public class GeneradorEquipo {
 
 	public static Equipo generar(String nombre) {
 
-		Equipo ret = new Equipo();
+		Equipo ret = new Equipo(nombre);
 		int c = 0;
 		while(ret.getCantidad() < Equipo.capacidad){
-			ret.agregar(new Jugador(nombre + " jugador" + c, paises[r
+			ret.agregar(new Jugador(nombre + " jugador" + c++, paises[r
 			                          					.nextInt(paises.length)], posiciones[r
 			                          					.nextInt(posiciones.length)], r.nextInt(10), r.nextInt(3),
 			                          					r.nextInt(100)));
