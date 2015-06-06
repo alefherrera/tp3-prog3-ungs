@@ -23,6 +23,8 @@ public class Main {
 			c++;
 		}
 		
+		equipos.add(GeneradorEquipo.generarBueno());
+		
 		for (Equipo equipo : equipos) {
 			universo.addAll(equipo.getJugadores());
 			System.out.println(equipo);
