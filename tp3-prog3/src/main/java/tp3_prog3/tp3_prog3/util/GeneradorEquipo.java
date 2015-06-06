@@ -18,7 +18,7 @@ public class GeneradorEquipo {
 		Equipo ret = new Equipo(pais);
 		int c = 0;
 		while (ret.getCantidad() < Equipo.capacidad) {
-			ret.agregar(new Jugador("jugador" + c++, pais, posiciones[r
+			ret.agregar(new Jugador(pais.toString() + c++, pais, posiciones[r
 					.nextInt(posiciones.length)], r.nextInt(10), r.nextInt(3),
 					r.nextInt(100)));
 		}

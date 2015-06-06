@@ -5,14 +5,12 @@ import java.util.List;
 
 public class Equipo {
 
-	private List<Jugador> jugadores;
-	public static final int capacidad = 11;
+	protected List<Jugador> jugadores;
+	public static final int capacidad = 23;
 	private Pais pais;
-
-	private static final int[] maximos = { 1, 4, 3, 3 };
-
-	private int[] cantidades;
-
+	private static final int[] maximos = { 3, 7, 7, 7 };
+	protected int[] cantidades;
+	
 	public Equipo() {
 		jugadores = new ArrayList<Jugador>();
 		cantidades = new int[4];
@@ -22,7 +20,7 @@ public class Equipo {
 		this();
 		this.pais = pais;
 	}
-
+	
 	public boolean agregar(Jugador j) {
 		int v = j.getPosicion().getValue();
 		boolean ret = false;
