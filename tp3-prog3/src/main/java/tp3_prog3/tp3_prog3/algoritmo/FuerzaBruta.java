@@ -9,8 +9,7 @@ public class FuerzaBruta {
 		Generador gen = new Generador(equipo);
 		while (gen.hasNext()) {
 			Respuesta actual = gen.next();
-			if ((elMejor == null || actual.getPuntaje() > elMejor.getPuntaje())
-					&& (actual.getPeso() < equipo.getCapacidad())) {
+			if ((elMejor == null || actual.getPuntaje() > elMejor.getPuntaje())) {
 				elMejor = actual;
 			}
 		}

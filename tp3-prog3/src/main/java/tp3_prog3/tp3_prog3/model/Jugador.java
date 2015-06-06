@@ -19,6 +19,21 @@ public class Jugador {
 	@DatabaseField
 	private int puntaje;
 
+	public Jugador(){
+		
+	}
+	
+	public Jugador(String nombre, Pais seleccion, Posicion posicion,
+			int tarjetasAmarillas, int tarjetasRojas, int puntaje) {
+		super();
+		this.nombre = nombre;
+		this.seleccion = seleccion;
+		this.posicion = posicion;
+		this.tarjetasAmarillas = tarjetasAmarillas;
+		this.tarjetasRojas = tarjetasRojas;
+		this.puntaje = puntaje;
+	}
+	
 	public String getNombre() {
 		return nombre;
 	}

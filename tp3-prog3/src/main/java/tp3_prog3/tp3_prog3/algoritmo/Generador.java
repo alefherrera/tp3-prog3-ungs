@@ -8,7 +8,7 @@ public class Generador {
 	private Equipo equipo;
 
 	public Generador(Equipo equipo) {
-		n = equipo.getCapacidad();
+		n = Equipo.capacidad;
 		this.equipo = equipo;
 		A = new boolean[n + 1];
 	}
