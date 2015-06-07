@@ -23,6 +23,14 @@ public class Respuesta extends Equipo {
 		return rojas;
 	}
 	
+	public Respuesta clonar(){
+		Respuesta clon = new Respuesta();
+		for (Jugador jugador : jugadores) {
+			clon.agregar(jugador);
+		}
+		return clon;
+	}
+	
 	@Override
 	public boolean agregar(Jugador j) {
 		jugadores.add(j);
@@ -45,10 +53,11 @@ public class Respuesta extends Equipo {
 		StringBuilder sb = new StringBuilder();
 		sb.append("\t");
 		for (Jugador jugador : jugadores) {
-			sb.append(jugador);
-			sb.append(",\n\t");
+			sb.append(jugador.getNombre());
+			//sb.append(",\n\t");
+			sb.append(",");
 		}
-		return "{\n Puntaje: " + getPuntaje() + ",\n Jugadores: [\n" + sb.toString() + "]\n}";
+		return "{\n HashCode: " + hashCode() + ",\n Puntaje: " + getPuntaje() + ",\n Jugadores: [\n" + sb.toString() + "]\n}";
 	}
 
 }
