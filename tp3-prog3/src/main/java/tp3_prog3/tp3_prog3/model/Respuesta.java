@@ -6,31 +6,31 @@ public class Respuesta extends Equipo {
 	private int[] cantidades;
 	private int amarillas;
 	private int rojas;
-	
-	public Respuesta(){
+
+	public Respuesta() {
 		cantidades = new int[4];
 	}
-	
-	public int[] getCantidades(){
+
+	public int[] getCantidades() {
 		return cantidades;
 	}
-	
-	public int getAmarillas(){
+
+	public int getAmarillas() {
 		return amarillas;
 	}
-	
-	public int getRojas(){
+
+	public int getRojas() {
 		return rojas;
 	}
-	
-	public Respuesta clonar(){
+
+	public Respuesta clonar() {
 		Respuesta clon = new Respuesta();
 		for (Jugador jugador : jugadores) {
 			clon.agregar(jugador);
 		}
 		return clon;
 	}
-	
+
 	@Override
 	public boolean agregar(Jugador j) {
 		jugadores.add(j);
@@ -52,12 +52,17 @@ public class Respuesta extends Equipo {
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("\t");
+		int s = jugadores.size();
+		int c = 0;
 		for (Jugador jugador : jugadores) {
 			sb.append(jugador.getNombre());
-			//sb.append(",\n\t");
-			sb.append(",");
+			// sb.append(",\n\t");
+			if (++c != s)
+				sb.append(",");
 		}
-		return "{\n HashCode: " + hashCode() + ",\n Puntaje: " + getPuntaje() + ",\n Jugadores: [\n" + sb.toString() + "]\n}";
+		return "{\n HashCode: " + hashCode() + ",\n Puntaje: " + getPuntaje()
+				+ ",\n Jugadores: [\n" + sb.toString() + "\n\t],\n Cantidad: "
+				+ s + "}";
 	}
 
 }

@@ -11,63 +11,68 @@ import tp3_prog3.tp3_prog3.model.Respuesta;
 public class BackTracking {
 
 	public static Set<Respuesta> resolver(List<Jugador> universo) {
-		//Respuesta ret = new Respuesta();
+		// Respuesta ret = new Respuesta();
 
-		/*Comparator<Jugador> comp = new Comparator<Jugador>() {
-
-			public int compare(Jugador o1, Jugador o2) {
-				if (o1.getPuntaje() < o2.getPuntaje())
-					return 1;
-				if (o1.getPuntaje() == o2.getPuntaje())
-					return 0;
-				return -1;
-			}
-
-		};*/
+		/*
+		 * Comparator<Jugador> comp = new Comparator<Jugador>() {
+		 * 
+		 * public int compare(Jugador o1, Jugador o2) { if (o1.getPuntaje() <
+		 * o2.getPuntaje()) return 1; if (o1.getPuntaje() == o2.getPuntaje())
+		 * return 0; return -1; }
+		 * 
+		 * };
+		 */
 
 		// universo.sort(comp);
 		// esto no asegura que la solucion que encuentro sea la mejor
 		Set<Respuesta> r = recursivo(universo, new Respuesta(), 0);
 
-		//System.out.println(r);
+		// System.out.println(r);
 
 		System.out.println("FIN");
 		return r;
 	}
 
 	private static Set<Respuesta> recursivo(List<Jugador> universo,
-			Respuesta r, int n) {
+			Respuesta respuestaParcial, int desde) {
 		Set<Respuesta> ret = new HashSet<Respuesta>();
-		if (n == universo.size()) {
+		//evito los ultimos porque simepre busco hacia adelante
+		if (desde == universo.size()-Respuesta.capacidad+1) {
 			return ret;
 		}
-		System.out.println("Recursion: " + n);
-		// System.out.println("RESPUESTA HASTA EL MOMENTO" + r);
-		for (int i = n; i < universo.size(); i++) {
+
+		System.out.println("-------------------------------------RECURSION "
+				+ desde + "-------------------------------------");
+		System.out.println("RESPUESTA HASTA EL MOMENTO" + respuestaParcial);
+		for (int i = desde; i < universo.size(); i++) {
 			// System.out.println("vuelta: " + i);
-			Jugador j = universo.get(i);
-			System.out.println("sujeto de prueba: " + j);
-			System.out.println("respuesta de prueba: " + r);
-			if (cumpleTodo(r, j)) {
+			Jugador jugadorPrueba = universo.get(i);
+			// System.out.println("sujeto de prueba: " + j);
+			// System.out.println("respuesta de prueba: " + r);
+			if (cumpleTodo(respuestaParcial, jugadorPrueba)) {
 				// System.out.println("CUMPLE!");
+				//Respuesta clon = respuestaParcial.clonar();
 				// cada vez que un equipo va cumpliendo las condiciones genero
 				// todas las combinaciones con los siguientes
-				r.agregar(j);
-				universo.remove(j);
-				ret.addAll(recursivo(universo, r.clonar(), n + 1));
+				respuestaParcial.agregar(jugadorPrueba);
+
+				if (respuestaParcial.getCantidad() == Respuesta.capacidad) {
+					ret.add(respuestaParcial);
+					continue;
+				} else {
+					ret.addAll(recursivo(universo, respuestaParcial.clonar(), desde + 1));
+				}
 			}
-			if (r.getCantidad() == Respuesta.capacidad) {
-				//if (!ret.contains(r))
-					ret.add(r);
-			}
+
 		}
 		return ret;
 	}
 
 	private static boolean cumpleTodo(Respuesta r, Jugador j) {
-		return !r.getJugadores().contains(j) && r.getCantidad() < 11 && cumpleFormacion(r, j)
-				&& cumpleSeleccion(r, j) && cumpleAmarillas(r, j)
-				&& cumpleRojas(r, j);
+		return !r.getJugadores().contains(j)
+				&& r.getCantidad() < Respuesta.capacidad
+				&& cumpleFormacion(r, j) && cumpleSeleccion(r, j)
+				&& cumpleAmarillas(r, j) && cumpleRojas(r, j);
 	}
 
 	private static final int[] maximos = { 1, 4, 3, 3 };

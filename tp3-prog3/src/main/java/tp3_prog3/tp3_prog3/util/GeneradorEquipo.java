@@ -26,29 +26,27 @@ public class GeneradorEquipo {
 		return ret;
 	}
 	
-	public static Equipo generarBueno(){
+	public static Equipo generarBueno(int puntaje, Pais pais){
 		Equipo ret = new Equipo();
+		Posicion pos;
 		for (int i = 0; i < 11; i++) 
 		{
-			int pos = 0;
 			switch (i) {
 			case 0:
-				pos = 0;
+				pos = Posicion.ARQUERO;
 				break;
 			case 1: case 2: case 3: case 4:
-				pos = 1;
+				pos = Posicion.DEFENSOR;
 				break;
 			case 5: case 6: case 7:
-				pos = 2;
-				break;
-			case 8: case 9: case 10:
-				pos = 3;
+				pos = Posicion.MEDIOCAMPISTA;
 				break;
 			default:
+				pos = Posicion.DELANTERO;
 				break;
 			}
 			
-			Jugador asd = new Jugador("Jugador-" + i,paises[r.nextInt(paises.length)] , posiciones[pos], 0, 0, 10);
+			Jugador asd = new Jugador(pais.toString() + i,pais , pos, 0, 0, puntaje);
 			ret.agregar(asd);
 		}
 		return ret;
