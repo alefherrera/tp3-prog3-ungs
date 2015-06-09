@@ -1,14 +1,19 @@
 package tp3_prog3.tp3_prog3.model;
 
+import java.util.Hashtable;
+import java.util.Map;
+
 public class Respuesta extends Equipo {
 
 	public static final int capacidad = 11;
 	private int[] cantidades;
 	private int amarillas;
 	private int rojas;
+	private Map<Pais, Integer> paises;
 
 	public Respuesta() {
 		cantidades = new int[4];
+		paises = new Hashtable<Pais, Integer>();
 	}
 
 	public int[] getCantidades() {
@@ -34,10 +39,16 @@ public class Respuesta extends Equipo {
 	@Override
 	public boolean agregar(Jugador j) {
 		jugadores.add(j);
-		amarillas += j.getTarjetasAmarillas();
-		rojas += j.getTarjetasRojas();
+		amarillas += j.getTarjetasAmarillas() > 0 ? 1 : 0;
+		rojas += j.getTarjetasRojas() > 0 ? 1 : 0;
 		cantidades[j.getPosicion().getValue()]++;
+		Integer c = paises.get(j.getSeleccion());
+		paises.put(j.getSeleccion(),(c == null ? 0 : c )+1);
 		return true;
+	}
+	
+	public Map<Pais, Integer> paises(){
+		return paises;
 	}
 
 	public double getPuntaje() {

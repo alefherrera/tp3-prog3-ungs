@@ -33,8 +33,7 @@ public class BackTracking {
 		return r;
 	}
 
-	private static Set<Respuesta> recursivo(List<Jugador> universo,
-			Respuesta respuestaParcial, int desde) {
+	private static Set<Respuesta> recursivo(List<Jugador> universo, Respuesta respuestaParcial, int desde) {
 		Set<Respuesta> ret = new HashSet<Respuesta>();
 		//evito los ultimos porque simepre busco hacia adelante
 		if (desde == universo.size()-Respuesta.capacidad+1) {
