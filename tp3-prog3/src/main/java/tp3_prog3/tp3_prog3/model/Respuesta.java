@@ -66,8 +66,8 @@ public class Respuesta extends Equipo {
 		int s = jugadores.size();
 		int c = 0;
 		for (Jugador jugador : jugadores) {
-			sb.append(jugador.getNombre());
-			// sb.append(",\n\t");
+			sb.append(jugador.toString());
+			 sb.append(",\n\t");
 			if (++c != s)
 				sb.append(",");
 		}

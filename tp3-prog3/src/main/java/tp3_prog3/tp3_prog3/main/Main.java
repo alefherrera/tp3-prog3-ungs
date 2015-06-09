@@ -41,11 +41,11 @@ public class Main {
     	eqArg.agregar(new Jugador("Jugador12" , Pais.ARGENTINA , Posicion.DELANTERO, 0, 0, 10));
     //	eqArg.agregar(new Jugador("Jugador13" , Pais.ARGENTINA , Posicion.DELANTERO, 0, 0, 5));
     	eqArg.agregar(new Jugador("Jugador14" , Pais.ARGENTINA , Posicion.DELANTERO, 0, 0, 5));
-   // 	eqArg.agregar(new Jugador("Jugador15" , Pais.ARGENTINA , Posicion.DELANTERO, 0, 0, 5));
+    	eqArg.agregar(new Jugador("Jugador15" , Pais.ARGENTINA , Posicion.DELANTERO, 0, 0, 5));
 
     	Equipo eqBra = new Equipo();
-    //	eqBra.agregar(new Jugador("Jugador16" , Pais.BRASIL , Posicion.ARQUERO, 0, 0, 5));
-   // 	eqBra.agregar(new Jugador("Jugador17" , Pais.BRASIL , Posicion.DEFENSOR, 0, 0, 5));
+    	eqBra.agregar(new Jugador("Jugador16" , Pais.BRASIL , Posicion.ARQUERO, 0, 0, 5));
+    	eqBra.agregar(new Jugador("Jugador17" , Pais.BRASIL , Posicion.DEFENSOR, 0, 0, 5));
     	eqBra.agregar(new Jugador("Jugador18" , Pais.BRASIL , Posicion.DEFENSOR, 0, 0, 10));
     	eqBra.agregar(new Jugador("Jugador19" , Pais.BRASIL , Posicion.DEFENSOR, 0, 0, 10));
     	eqBra.agregar(new Jugador("Jugador20" , Pais.BRASIL , Posicion.DEFENSOR, 0, 0, 5));
@@ -54,11 +54,11 @@ public class Main {
     	eqBra.agregar(new Jugador("Jugador23" , Pais.BRASIL , Posicion.MEDIOCAMPISTA, 1, 0, 10));
     	eqBra.agregar(new Jugador("Jugador24" , Pais.BRASIL , Posicion.MEDIOCAMPISTA, 0, 0, 5));
     	eqBra.agregar(new Jugador("Jugador25" , Pais.BRASIL , Posicion.MEDIOCAMPISTA, 0, 0, 5));
-  //  	eqBra.agregar(new Jugador("Jugador26" , Pais.BRASIL , Posicion.DELANTERO, 0, 0, 5));
-    //	eqBra.agregar(new Jugador("Jugador27" , Pais.BRASIL , Posicion.DELANTERO, 0, 0, 5));
-    //	eqBra.agregar(new Jugador("Jugador28" , Pais.BRASIL , Posicion.DELANTERO, 0, 0, 5));
-    //	eqBra.agregar(new Jugador("Jugador29" , Pais.BRASIL , Posicion.DELANTERO, 0, 0, 5));
-    	//eqBra.agregar(new Jugador("Jugador30" , Pais.BRASIL , Posicion.DELANTERO, 0, 0, 5));
+//    	eqBra.agregar(new Jugador("Jugador26" , Pais.BRASIL , Posicion.DELANTERO, 0, 0, 5));
+//    	eqBra.agregar(new Jugador("Jugador27" , Pais.BRASIL , Posicion.DELANTERO, 0, 0, 5));
+//    	eqBra.agregar(new Jugador("Jugador28" , Pais.BRASIL , Posicion.DELANTERO, 0, 0, 5));
+//    	eqBra.agregar(new Jugador("Jugador29" , Pais.BRASIL , Posicion.DELANTERO, 0, 0, 5));
+//    	eqBra.agregar(new Jugador("Jugador30" , Pais.BRASIL , Posicion.DELANTERO, 0, 0, 5));
 		
     	Equipo eqOpt = new Equipo();
     //	eqOpt.agregar(new Jugador("Jugador1" , Pais.ARGENTINA , Posicion.ARQUERO, 1, 0, 10));

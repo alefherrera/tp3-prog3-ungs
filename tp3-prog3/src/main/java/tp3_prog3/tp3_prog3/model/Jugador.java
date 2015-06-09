@@ -90,4 +90,48 @@ public class Jugador {
 				+ ", puntaje=" + puntaje + "]";
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
+		result = prime * result
+				+ ((posicion == null) ? 0 : posicion.hashCode());
+		result = prime * result + puntaje;
+		result = prime * result
+				+ ((seleccion == null) ? 0 : seleccion.hashCode());
+		result = prime * result + tarjetasAmarillas;
+		result = prime * result + tarjetasRojas;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Jugador other = (Jugador) obj;
+		if (nombre == null) {
+			if (other.nombre != null)
+				return false;
+		} else if (!nombre.equals(other.nombre))
+			return false;
+		if (posicion != other.posicion)
+			return false;
+		if (puntaje != other.puntaje)
+			return false;
+		if (seleccion != other.seleccion)
+			return false;
+		if (tarjetasAmarillas != other.tarjetasAmarillas)
+			return false;
+		if (tarjetasRojas != other.tarjetasRojas)
+			return false;
+		return true;
+	}
+	
+	
+
 }
